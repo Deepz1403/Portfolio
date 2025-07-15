@@ -52,7 +52,7 @@ export default function Header() {
       </h3>
 
       <h1 className="text-2xl sm:text-5xl lg:text-[60px] font-ovo">
-        I'm a {displayedTitle}
+        I'm  {displayedTitle}
         <span className="animate-ping">|</span>
       </h1>
 
