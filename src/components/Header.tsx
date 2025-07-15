@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight, Hand } from "lucide-react";
@@ -39,20 +40,22 @@ export default function Header() {
   return (
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-6">
       <div className="mb-6">
-        <img
+        <Image
           src="/Images/Deepesh Gavali Photo.jpg"
           alt="Profile"
+          width={160}
+          height={160}
           className="rounded-full w-40 h-40 object-cover mx-auto"
         />
       </div>
 
       <h3 className="flex items-center justify-center gap-3 text-xl md:text-2xl mb-2 font-ovo">
-        Hi, I'm Deepesh Gavali
+        Hi, I&apos;m Deepesh Gavali
         <Hand className="w-8 h-8 text-yellow-500" />
       </h3>
 
       <h1 className="text-2xl sm:text-5xl lg:text-[60px] font-ovo">
-        I'm {displayedTitle}
+        I&apos;m {displayedTitle}
         <span className="animate-ping">|</span>
       </h1>
 

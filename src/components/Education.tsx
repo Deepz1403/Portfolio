@@ -1,32 +1,32 @@
 "use client";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+
 
 export default function Education() {
   const educationData = [
     {
       title: "BE Computer Science & Engineering",
-      institution: "Thapar Institute of Engineering & Technology",
+      institution: "Thapar Institute of Engineering & Technology, Patiala",
       year: "2022-2026",
       description: "CGPA : 8.21",
       image: "/Images/Thapar Institute of Engineering & Technology.jpeg",
     },
     {
       title: "Class 12th",
-      institution: "Namo Rims Junior College",
+      institution: "Namo Rims Junior College, Pune",
       year: "2021",
       description: "92.33%",
       image: "/Images/Namo Rims Junior College.jpeg",
     },
     {
       title: "Class 10th",
-      institution: "Hutchings High School",
+      institution: "Hutchings High School, Pune",
       year: "2019",
       description: "94.33%",
       image: "/Images/Hutchings High School.jpeg",
@@ -49,22 +49,20 @@ export default function Education() {
             className="overflow-hidden hover:shadow-lg transition-shadow duration-300 pt-0"
           >
             <div className="relative h-48 overflow-hidden">
-              <img
+              <Image
                 src={edu.image}
                 alt={edu.institution}
+                width={400}
+                height={192}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>
             <CardHeader>
               <CardTitle className="text-xl">{edu.institution}</CardTitle>
               <CardDescription className="text-lg">{edu.title}</CardDescription>
+              <p className="text-base text-muted-foreground">{edu.year}</p>
+              <p className="text-base text-muted-foreground">{edu.description}</p>
             </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Badge variant="secondary" className="text-base">{edu.year}</Badge>
-                <Badge variant="outline" className="text-base">{edu.description}</Badge>
-              </div>
-            </CardContent>
           </Card>
         ))}
       </div>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -13,35 +14,27 @@ import { ExternalLink, Github } from "lucide-react";
 export default function Projects() {
   const projectsData = [
     {
-      title: "E-commerce Website",
+      title: "PulseMail",
       description:
-        "A full-stack e-commerce platform built with Next.js and MongoDB",
+        "A scalable SaaS email newsletter platform with a custom editor, tiered Stripe subscriptions, and API integration for external websites.",
       image: "/images/work-1.png",
-      technologies: ["Next.js", "MongoDB", "Tailwind CSS", "Stripe"],
+      technologies: ["Next.js", "TypeScript", "AstraDB"],
       demoLink: "#",
       githubLink: "#",
     },
     {
-      title: "Portfolio Website",
+      title: "OrderMate",
       description:
-        "A responsive portfolio website showcasing projects and skills",
+        "An AI-powered order processing system featuring automated inventory control, dynamic pricing, sentiment analysis, and an interactive analytics dashboard.",
       image: "/images/work-2.png",
-      technologies: ["React", "CSS", "JavaScript", "Framer Motion"],
-      demoLink: "#",
-      githubLink: "#",
-    },
-    {
-      title: "Task Management App",
-      description: "A productivity app for managing tasks and projects",
-      image: "/images/work-3.png",
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
       demoLink: "#",
       githubLink: "#",
     },
   ];
 
   return (
-    <div id="projects" className="w-full px-[12%] py-20 scroll-mt-20">
+    <div id="projects" className="w-full px-4 md:px-8 lg:px-12 py-20 scroll-mt-20">
       <div className="text-center mb-12">
         <h4 className="text-lg font-ovo text-muted-foreground mb-2">
           My Portfolio
@@ -49,27 +42,29 @@ export default function Projects() {
         <h2 className="text-4xl md:text-5xl font-ovo">Projects</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
         {projectsData.map((project, index) => (
           <Card
             key={index}
-            className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
           >
-            <div className="relative h-48 overflow-hidden">
-              <img
+            <div className="relative h-48 overflow-hidden rounded-t-lg">
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                layout="fill"
+                objectFit="cover"
+                className="transition-transform duration-300 hover:scale-105"
               />
             </div>
             <CardHeader>
-              <CardTitle className="text-xl">{project.title}</CardTitle>
-              <CardDescription>{project.description}</CardDescription>
+              <CardTitle className="text-2xl">{project.title}</CardTitle>
+              <CardDescription className="text-base">{project.description}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
-                  <Badge key={techIndex} variant="secondary">
+                  <Badge key={techIndex} variant="outline" className="text-base px-2 py-1">
                     {tech}
                   </Badge>
                 ))}

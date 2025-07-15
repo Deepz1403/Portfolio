@@ -39,7 +39,7 @@ export default function Contact() {
       } else {
         throw new Error(data.message);
       }
-    } catch (error) {
+    } catch {
       toast.error("Error sending message", {
         description: "Something went wrong. Please try again.",
       });
@@ -62,9 +62,9 @@ export default function Contact() {
           <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Let's work together</CardTitle>
+                <CardTitle className="text-2xl">Let&apos;s work together</CardTitle>
                 <CardDescription>
-                  I'm currently available to take on new projects, so feel free
+                  I&apos;m currently available to take on new projects, so feel free
                   to send me a message about anything you want me to work on.
                 </CardDescription>
               </CardHeader>
@@ -97,7 +97,7 @@ export default function Contact() {
             <CardHeader>
               <CardTitle>Send me a message</CardTitle>
               <CardDescription>
-                Fill out the form below and I'll get back to you as soon as
+                Fill out the form below and I&apos;ll get back to you as soon as
                 possible.
               </CardDescription>
             </CardHeader>

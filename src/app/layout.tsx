@@ -17,9 +17,9 @@ const ovo = Ovo({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name - Portfolio",
+  title: "Deepesh Gavali Portfolio",
   description:
-    "Frontend Developer Portfolio showcasing projects, skills, and experience",
+    "Personal Portfolio showcasing projects, skills and experience",
 };
 
 export default function RootLayout({

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -21,14 +22,16 @@ export default function Navbar() {
   return (
     <>
       <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
-        <img src="/images/header-bg-color.png" alt="" className="w-full" />
+        <Image src="/images/header-bg-color.png" alt="" width={800} height={600} className="w-full" />
       </div>
 
       <nav className="w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 bg-background/80 backdrop-blur-md">
         <a href="#top">
-          <img
+          <Image
             src="/Images/Logo.png"
             alt="Logo"
+            width={160}
+            height={40}
             className="w-40 cursor-pointer mr-8"
           />
         </a>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Twitter } from "lucide-react";
@@ -7,10 +8,10 @@ export default function Footer() {
   return (
     <footer className="mt-20 pb-8">
       <div className="text-center mb-8">
-        <img src="/images/logo.png" alt="Logo" className="w-36 mx-auto mb-4" />
+        <Image src="/images/logo.png" alt="Logo" width={144} height={144} className="w-36 mx-auto mb-4" />
         <p className="max-w-md mx-auto font-ovo text-muted-foreground">
           I am a frontend developer with experience in React, Next.js, and
-          modern web technologies. Let's build something amazing together.
+          modern web technologies. Let&apos;s build something amazing together.
         </p>
       </div>
 

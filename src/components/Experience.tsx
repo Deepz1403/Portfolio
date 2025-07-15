@@ -7,25 +7,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Briefcase } from "lucide-react";
+import Image from "next/image";
 
 export default function Experience() {
   const experienceData = [
     {
-      title: "Frontend Developer",
-      company: "Tech Company",
-      period: "2024 - Present",
-      description:
-        "Developed responsive web applications using React.js and Next.js. Collaborated with design teams to implement user interfaces.",
-      skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
-    },
-    {
-      title: "Web Developer Intern",
-      company: "Startup Inc.",
-      period: "2023 - 2024",
-      description:
-        "Built landing pages and maintained existing websites. Worked with HTML, CSS, JavaScript, and React.",
-      skills: ["HTML", "CSS", "JavaScript", "React"],
+      title: "Intern – Technology & Transformation",
+      company: "Deloitte India",
+      period: "June 2025 – July 2025",
+      description: [
+        "Built an automated disaster recovery controller for SAP BTP’s Kyma runtime using <strong>Kubernetes</strong>, reducing failover time by <strong>over 80%</strong> through real-time detection and replication of microservices across regions.",
+        "Engineered configuration backup and restore workflows (secrets, envs, etc.) using <strong>Go</strong>, achieving <strong>95%+ recovery accuracy</strong>, ensuring seamless service continuity.",
+        "Integrated <strong>DNS rerouting and alerting systems</strong> to improve incident response time by <strong>60%</strong>, increasing platform resilience in multi-region deployments.",
+      ],
+      skills: ["Kubernetes", "Go", "SAP BTP", "Kyma", "Microservices", "DNS"],
     },
   ];
 
@@ -45,28 +40,39 @@ export default function Experience() {
             className="hover:shadow-lg transition-shadow duration-300"
           >
             <CardHeader>
-              <div className="flex items-start gap-4">
-                <div className="p-2 bg-green-100 rounded-full">
-                  <Briefcase className="w-6 h-6 text-green-600" />
-                </div>
+              <div className="flex items-center justify-between gap-4">
+                <Image
+                  src="/Images/Deloitte.png"
+                  alt="Deloitte Logo"
+                  width={60}
+                  height={60}
+                  className="rounded-full border border-muted p-1"
+                />
                 <div className="flex-1">
-                  <CardTitle className="text-xl">{exp.title}</CardTitle>
-                  <CardDescription className="text-green-600 font-medium">
+                  <CardTitle className="text-xl font-bold">
+                    {exp.title}
+                  </CardTitle>
+                  <CardDescription className="text-lg text-foreground">
                     {exp.company}
                   </CardDescription>
                 </div>
-                <Badge variant="secondary">{exp.period}</Badge>
+                <span className="italic text-foreground text-base">{exp.period}</span>
               </div>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-4">{exp.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {exp.skills.map((skill, skillIndex) => (
-                  <Badge key={skillIndex} variant="outline">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
+            <CardContent className="px-6 pb-4">
+              {Array.isArray(exp.description) ? (
+                <ul className="list-disc list-inside text-foreground text-base mb-4 leading-relaxed">
+                  {exp.description.map((point, pointIndex) => (
+                    <li
+                      key={pointIndex}
+                      className="mb-2 last:mb-0"
+                      dangerouslySetInnerHTML={{ __html: point }}
+                    ></li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-muted-foreground mb-4">{exp.description}</p>
+              )}
             </CardContent>
           </Card>
         ))}
