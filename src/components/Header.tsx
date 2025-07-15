@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Download, ArrowRight, Hand } from "lucide-react";
 
 const titles = [
-  "Full-Stack Developer",
-  "AI/ML Enthusiast",
-  "DevOps Enthusiast",
-  "Software Engineer",
+  "a Full-Stack Developer",
+  "an AI/ML Enthusiast",
+  "a DevOps Enthusiast",
+  "a Software Engineer",
 ];
 
 export default function Header() {
@@ -52,7 +52,7 @@ export default function Header() {
       </h3>
 
       <h1 className="text-2xl sm:text-5xl lg:text-[60px] font-ovo">
-        I'm  {displayedTitle}
+        I'm {displayedTitle}
         <span className="animate-ping">|</span>
       </h1>
 
