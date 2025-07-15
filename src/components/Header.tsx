@@ -57,7 +57,7 @@ export default function Header() {
       </h1>
 
       <p className="max-w-2xl mx-auto font-ovo text-muted-foreground text-lg">
-        I am a final-year Computer Science student with a passion for leveraging
+        I am a Final-Year Computer Science student with a passion for leveraging
         technology to solve real-world problems. I am committed to continuous
         learning and enjoy applying my software development skills to build
         impactful, user-centric applications.
