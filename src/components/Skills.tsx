@@ -1,18 +1,25 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export default function Skills() {
   const skillsData = [
-    { name: "React.js", level: 90, category: "Frontend" },
-    { name: "Next.js", level: 85, category: "Frontend" },
-    { name: "JavaScript", level: 90, category: "Language" },
-    { name: "TypeScript", level: 75, category: "Language" },
-    { name: "HTML/CSS", level: 95, category: "Frontend" },
-    { name: "Tailwind CSS", level: 85, category: "Styling" },
-    { name: "Node.js", level: 70, category: "Backend" },
-    { name: "MongoDB", level: 65, category: "Database" },
+    { name: "HTML", category: "Frontend", path: "/Images/Skills/HTML.png" },
+    { name: "CSS", category: "Frontend", path: "/Images/Skills/CSS.png" },
+    { name: "JavaScript", category: "Frontend", path: "/Images/Skills/JavaScript.png" },
+    { name: "React", category: "Frontend", path: "/Images/Skills/Reactjs.png" },
+    { name: "Node.js", category: "Backend", path: "/Images/Skills/Nodejs.png" },
+    { name: "Express.js", category: "Backend", path: "/Images/Skills/Expressjs.png" },
+    
+    { name: "MongoDB", category: "Database", path: "/Images/Skills/MongoDB.png" },
+    { name: "MySQL", category: "Database", path: "/Images/Skills/MySQL.png" },
+    { name: "C/C++", category: "Languages", path: "/Images/Skills/C_C++.png" },
+    { name: "Python", category: "Languages", path: "/Images/Skills/Python.png" },
+    { name: "SQL", category: "Languages", path: "/Images/Skills/SQL.png" },
+    { name: "AWS", category: "Cloud", path: "/Images/Skills/AWS.png" },
+    { name: "Langchain", category: "AI&Tools", path: "/Images/Skills/Langchain.png" },
+    { name: "Vector Databases", category: "AI&Tools", path: "/Images/Skills/Vector Databases.png" },
   ];
 
   const categories = [...new Set(skillsData.map((skill) => skill.category))];
@@ -29,30 +36,27 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
-            <Card key={category} className="h-fit">
+            <Card key={category} className="h-full flex flex-col">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2 text-2xl md:text-3xl">
                   {category}
-                  <Badge variant="secondary">
-                    {
-                      skillsData.filter((skill) => skill.category === category)
-                        .length
-                    }
-                  </Badge>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="flex-grow flex flex-wrap justify-center gap-x-8 gap-y-6 p-6">
                 {skillsData
                   .filter((skill) => skill.category === category)
                   .map((skill, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <Progress value={skill.level} className="h-2" />
+                    <div key={index} className="flex flex-col items-center text-center group">
+                      {skill.path && (
+                        <Image
+                          src={skill.path}
+                          alt={skill.name}
+                          width={64}
+                          height={64}
+                          className="h-16 w-16 object-contain mb-2 transition-transform duration-200 group-hover:scale-110"
+                        />
+                      )}
+                      <span className="font-medium text-lg md:text-xl text-foreground group-hover:text-primary transition-colors duration-200">{skill.name}</span>
                     </div>
                   ))}
               </CardContent>

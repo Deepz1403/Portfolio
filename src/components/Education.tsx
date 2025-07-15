@@ -15,21 +15,21 @@ export default function Education() {
       institution: "Thapar Institute of Engineering & Technology, Patiala",
       year: "2022-2026",
       description: "CGPA : 8.21",
-      image: "/Images/Thapar Institute of Engineering & Technology.jpeg",
+      image: "/Images/Education/Thapar Institute of Engineering & Technology.jpeg",
     },
     {
       title: "Class 12th",
       institution: "Namo Rims Junior College, Pune",
       year: "2021",
       description: "92.33%",
-      image: "/Images/Namo Rims Junior College.jpeg",
+      image: "/Images/Education/Namo Rims Junior College.jpeg",
     },
     {
       title: "Class 10th",
       institution: "Hutchings High School, Pune",
       year: "2019",
       description: "94.33%",
-      image: "/Images/Hutchings High School.jpeg",
+      image: "/Images/Education/Hutchings High School.jpeg",
     },
   ];
 

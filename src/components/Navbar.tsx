@@ -28,7 +28,7 @@ export default function Navbar() {
       <nav className="w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 bg-background/80 backdrop-blur-md">
         <a href="#top">
           <Image
-            src="/Images/Logo.png"
+            src="/Images/Home/logo.png"
             alt="Logo"
             width={160}
             height={40}

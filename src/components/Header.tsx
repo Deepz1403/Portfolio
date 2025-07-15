@@ -41,7 +41,7 @@ export default function Header() {
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-6">
       <div className="mb-6">
         <Image
-          src="/Images/Deepesh Gavali Photo.jpg"
+          src="/Images/Home/Deepesh Gavali Photo.jpg"
           alt="Profile"
           width={160}
           height={160}

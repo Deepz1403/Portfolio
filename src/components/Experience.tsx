@@ -42,7 +42,7 @@ export default function Experience() {
             <CardHeader>
               <div className="flex items-center justify-between gap-4">
                 <Image
-                  src="/Images/Deloitte.png"
+                  src="/Images/Experience/Deloitte.png"
                   alt="Deloitte Logo"
                   width={60}
                   height={60}
