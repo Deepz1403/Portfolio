@@ -7,23 +7,29 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap } from "lucide-react";
 
 export default function Education() {
   const educationData = [
     {
-      degree: "Bachelor of Technology in Computer Science",
-      institution: "Your University",
-      year: "2020-2024",
-      description: "Specialized in software development and web technologies",
-      grade: "3.8 GPA",
+      title: "BE Computer Science & Engineering",
+      institution: "Thapar Institute of Engineering & Technology",
+      year: "2022-2026",
+      description: "CGPA : 8.21",
+      image: "/Images/Thapar Institute of Engineering & Technology.jpeg",
     },
     {
-      degree: "Higher Secondary Education",
-      institution: "Your School",
-      year: "2018-2020",
-      description: "Science stream with Computer Science",
-      grade: "95%",
+      title: "Class 12th",
+      institution: "Namo Rims Junior College",
+      year: "2021",
+      description: "92.33%",
+      image: "/Images/Namo Rims Junior College.jpeg",
+    },
+    {
+      title: "Class 10th",
+      institution: "Hutchings High School",
+      year: "2019",
+      description: "94.33%",
+      image: "/Images/Hutchings High School.jpeg",
     },
   ];
 
@@ -36,29 +42,28 @@ export default function Education() {
         <h2 className="text-4xl md:text-5xl font-ovo">Education</h2>
       </div>
 
-      <div className="max-w-4xl mx-auto space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {educationData.map((edu, index) => (
           <Card
             key={index}
-            className="hover:shadow-lg transition-shadow duration-300"
+            className="overflow-hidden hover:shadow-lg transition-shadow duration-300 pt-0"
           >
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src={edu.image}
+                alt={edu.institution}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
             <CardHeader>
-              <div className="flex items-start gap-4">
-                <div className="p-2 bg-blue-100 rounded-full">
-                  <GraduationCap className="w-6 h-6 text-blue-600" />
-                </div>
-                <div className="flex-1">
-                  <CardTitle className="text-xl">{edu.degree}</CardTitle>
-                  <CardDescription className="text-blue-600 font-medium">
-                    {edu.institution}
-                  </CardDescription>
-                </div>
-                <Badge variant="secondary">{edu.year}</Badge>
-              </div>
+              <CardTitle className="text-xl">{edu.institution}</CardTitle>
+              <CardDescription className="text-lg">{edu.title}</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-2">{edu.description}</p>
-              <Badge variant="outline">Grade: {edu.grade}</Badge>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge variant="secondary" className="text-base">{edu.year}</Badge>
+                <Badge variant="outline" className="text-base">{edu.description}</Badge>
+              </div>
             </CardContent>
           </Card>
         ))}

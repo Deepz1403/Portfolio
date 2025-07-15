@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, ArrowUpRight } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Navbar() {
@@ -27,9 +27,9 @@ export default function Navbar() {
       <nav className="w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 bg-background/80 backdrop-blur-md">
         <a href="#top">
           <img
-            src="/images/logo.png"
+            src="/Images/Logo.png"
             alt="Logo"
-            className="w-28 cursor-pointer mr-14"
+            className="w-40 cursor-pointer mr-8"
           />
         </a>
 
@@ -52,7 +52,7 @@ export default function Navbar() {
           <Button asChild className="hidden lg:flex font-ovo">
             <a href="#contact">
               Contact
-              <img src="/icons/arrow_icon.png" alt="" className="w-3 ml-2" />
+              <ArrowUpRight className="w-4 h-4 ml-2" />
             </a>
           </Button>
 
