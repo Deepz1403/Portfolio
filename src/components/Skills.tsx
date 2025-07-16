@@ -1,31 +1,74 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { Monitor, Server, Database, Code2, Cloud, Cpu } from "lucide-react";
 
 export default function Skills() {
   const skillsData = [
-    { name: "HTML", category: "Frontend", path: "/Images/Skills/HTML.png" },
-    { name: "CSS", category: "Frontend", path: "/Images/Skills/CSS.png" },
-    { name: "JavaScript", category: "Frontend", path: "/Images/Skills/JavaScript.png" },
-    { name: "React", category: "Frontend", path: "/Images/Skills/Reactjs.png" },
-    { name: "Node.js", category: "Backend", path: "/Images/Skills/Nodejs.png" },
-    { name: "Express.js", category: "Backend", path: "/Images/Skills/Expressjs.png" },
-    
-    { name: "MongoDB", category: "Database", path: "/Images/Skills/MongoDB.png" },
-    { name: "MySQL", category: "Database", path: "/Images/Skills/MySQL.png" },
-    { name: "C/C++", category: "Languages", path: "/Images/Skills/C_C++.png" },
-    { name: "Python", category: "Languages", path: "/Images/Skills/Python.png" },
-    { name: "SQL", category: "Languages", path: "/Images/Skills/SQL.png" },
-    { name: "AWS", category: "Cloud", path: "/Images/Skills/AWS.png" },
-    { name: "Langchain", category: "AI&Tools", path: "/Images/Skills/Langchain.png" },
-    { name: "Vector Databases", category: "AI&Tools", path: "/Images/Skills/Vector Databases.png" },
+    {
+      category: "Frontend Development",
+      icon: Monitor,
+      color: "from-blue-500 to-cyan-500",
+      skills: [
+        { name: "HTML", path: "/Images/Skills/HTML.png" },
+        { name: "CSS", path: "/Images/Skills/CSS.png" },
+        { name: "JavaScript", path: "/Images/Skills/JavaScript.png" },
+        { name: "React", path: "/Images/Skills/Reactjs.png" },
+      ],
+    },
+    {
+      category: "Backend Development",
+      icon: Server,
+      color: "from-green-500 to-emerald-500",
+      skills: [
+        { name: "Node.js", path: "/Images/Skills/Nodejs.png" },
+        { name: "Express.js", path: "/Images/Skills/Expressjs.png" },
+      ],
+    },
+    {
+      category: "Database Management",
+      icon: Database,
+      color: "from-purple-500 to-violet-500",
+      skills: [
+        { name: "MongoDB", path: "/Images/Skills/MongoDB.png" },
+        { name: "MySQL", path: "/Images/Skills/MySQL.png" },
+      ],
+    },
+    {
+      category: "Programming Languages",
+      icon: Code2,
+      color: "from-orange-500 to-red-500",
+      skills: [
+        { name: "C/C++", path: "/Images/Skills/C_C++.png" },
+        { name: "Python", path: "/Images/Skills/Python.png" },
+        { name: "SQL", path: "/Images/Skills/SQL.png" },
+      ],
+    },
+    {
+      category: "Cloud",
+      icon: Cloud,
+      color: "from-indigo-500 to-blue-500",
+      skills: [{ name: "AWS", path: "/Images/Skills/AWS.png" }],
+    },
+    {
+      category: "AI & Tools",
+      icon: Cpu,
+      color: "from-pink-500 to-rose-500",
+      skills: [
+        { name: "Langchain", path: "/Images/Skills/Langchain.png" },
+        {
+          name: "Vector Databases",
+          path: "/Images/Skills/Vector Databases.png",
+        },
+      ],
+    },
   ];
 
-  const categories = [...new Set(skillsData.map((skill) => skill.category))];
-
   return (
-    <div id="skills" className="w-full px-[12%] py-20 scroll-mt-20">
+    <div
+      id="skills"
+      className="w-full px-4 md:px-8 lg:px-12 py-20 scroll-mt-20"
+    >
       <div className="text-center mb-12">
         <h4 className="text-lg font-ovo text-muted-foreground mb-2">
           What I Know
@@ -33,36 +76,48 @@ export default function Skills() {
         <h2 className="text-4xl md:text-5xl font-ovo">Skills</h2>
       </div>
 
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category) => (
-            <Card key={category} className="h-full flex flex-col">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-2xl md:text-3xl">
-                  {category}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {skillsData.map((categoryData, categoryIndex) => {
+          const IconComponent = categoryData.icon;
+          return (
+            <Card
+              key={categoryIndex}
+              className="flex flex-col overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <CardHeader className="flex-shrink-0">
+                <CardTitle className="flex items-center gap-3 text-xl">
+                  <div
+                    className={`p-2 rounded-lg bg-gradient-to-br ${categoryData.color} text-white shadow-lg`}
+                  >
+                    <IconComponent className="w-6 h-6" />
+                  </div>
+                  <span className="font-ovo">{categoryData.category}</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-grow flex flex-wrap justify-center gap-x-8 gap-y-6 p-6">
-                {skillsData
-                  .filter((skill) => skill.category === category)
-                  .map((skill, index) => (
-                    <div key={index} className="flex flex-col items-center text-center group">
+
+              <CardContent className="flex-grow mt-4">
+                <div className="grid grid-cols-2 gap-x-2 gap-y-4">
+                  {categoryData.skills.map((skill, skillIndex) => (
+                    <div key={skillIndex} className="flex items-center gap-3 p-2 rounded-lg border border-transparent transition-colors">
                       {skill.path && (
                         <Image
                           src={skill.path}
                           alt={skill.name}
-                          width={64}
-                          height={64}
-                          className="h-16 w-16 object-contain mb-2 transition-transform duration-200 group-hover:scale-110"
+                          width={32}
+                          height={32}
+                          className="h-8 w-8 object-contain"
                         />
                       )}
-                      <span className="font-medium text-lg md:text-xl text-foreground group-hover:text-primary transition-colors duration-200">{skill.name}</span>
+                      <span className="font-medium text-lg text-foreground">
+                        {skill.name}
+                      </span>
                     </div>
                   ))}
+                </div>
               </CardContent>
             </Card>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </div>
   );

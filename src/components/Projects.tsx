@@ -64,7 +64,7 @@ export default function Projects() {
             <CardContent>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
-                  <Badge key={techIndex} variant="outline" className="text-base px-2 py-1">
+                  <Badge key={techIndex} variant="outline" className="text-base px-2 py-1 hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
                     {tech}
                   </Badge>
                 ))}
