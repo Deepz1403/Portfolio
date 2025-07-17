@@ -19,30 +19,47 @@ export default function Contact() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget; // Save the form reference
     setIsLoading(true);
 
-    const formData = new FormData(event.currentTarget);
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    const formData = new FormData(form);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
       });
 
       const data = await response.json();
 
-      if (data.success) {
-        toast.success("Message sent successfully!", {
-          description: "Thank you for your message. I'll get back to you soon.",
-        });
-        event.currentTarget.reset();
-      } else {
-        throw new Error(data.message);
+      if (!response.ok || !data.success) {
+        throw new Error("Failed to send message");
       }
-    } catch {
+
+      toast.success("Message sent successfully!", {
+        description: "Thank you for your message. I'll get back to you soon.",
+        style: {
+          backgroundColor: "hsl(var(--background))",
+          color: "hsl(var(--foreground))",
+          border: "1px solid hsl(var(--border))",
+        },
+      });
+
+      form.reset(); // Use the saved reference
+    } catch (error) {
       toast.error("Error sending message", {
         description: "Something went wrong. Please try again.",
+        style: {
+          backgroundColor: "hsl(var(--background))",
+          color: "hsl(var(--foreground))",
+          border: "1px solid hsl(var(--border))",
+        },
       });
     } finally {
       setIsLoading(false);
@@ -100,7 +117,8 @@ export default function Contact() {
                   Let&apos;s Work Together
                 </CardTitle>
                 <CardDescription className="text-foreground text-sm lg:text-base">
-                  I&apos;m actively seeking new opportunities. Feel free to reach out if you have an exciting project or role in mind.
+                  I&apos;m actively seeking new opportunities. Feel free to
+                  reach out if you have an exciting project or role in mind.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
