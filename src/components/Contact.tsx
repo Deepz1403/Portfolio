@@ -52,6 +52,7 @@ export default function Contact() {
       });
 
       form.reset(); // Use the saved reference
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error("Error sending message", {
         description: "Something went wrong. Please try again.",
