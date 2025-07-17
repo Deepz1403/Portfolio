@@ -1,7 +1,7 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import { Monitor, Server, Database, Code2, Cloud, Cpu, Edit } from "lucide-react";
+import { Monitor, Server, Database, Code2, Cloud, Cpu } from "lucide-react";
 
 export default function Skills() {
   const skillsData = [
@@ -122,4 +122,3 @@ export default function Skills() {
     </div>
   );
 }
-#nothing to edit

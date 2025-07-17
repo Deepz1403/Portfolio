@@ -36,10 +36,10 @@ export default function Achievements() {
   return (
     <div id="achievements" className="w-full px-[12%] py-12 scroll-mt-20">
       <div className="text-center mb-8">
-        <h4 className="text-sm font-ovo text-muted-foreground mb-1">
+        <h4 className="text-lg font-ovo text-muted-foreground mb-2">
           My Accomplishments
         </h4>
-        <h2 className="text-3xl md:text-4xl font-ovo">Achievements</h2>
+        <h2 className="text-4xl md:text-5xl font-ovo">Achievements</h2>
       </div>
 
       <div className="max-w-7xl mx-auto">
@@ -68,12 +68,12 @@ export default function Achievements() {
                   <div className="flex flex-col p-4 w-2/3 h-full">
                     <div className="flex-shrink-0 mb-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <div className="w-6 h-1 bg-blue-500 rounded-full"></div>
-                        <CardDescription className="text-blue-600 font-medium uppercase tracking-wide text-sm">
+                        <div className="w-6 h-1 bg-blue-500 dark:bg-sky-300 rounded-full"></div>
+                        <CardDescription className="text-blue-600 dark:text-sky-400 font-medium uppercase tracking-wide text-sm">
                           {achievement.organization}
                         </CardDescription>
                       </div>
-                      <CardTitle className="text-lg lg:text-xl font-bold text-gray-900 leading-tight">
+                      <CardTitle className="text-lg lg:text-xl font-bold text-foreground leading-tight">
                         {achievement.title}
                       </CardTitle>
                     </div>

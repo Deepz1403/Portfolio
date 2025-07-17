@@ -74,6 +74,12 @@ export default function Contact() {
       image: "/Images/Contact/Leetcode.png",
       url: "https://leetcode.com/u/Deepz143/",
     },
+    {
+      name: "Twitter",
+      username: "Deepesh_Gavali",
+      image: "/Images/Contact/Twitter.png",
+      url: "https://x.com/Deepesh_Gavali",
+    },
   ];
 
   return (
@@ -99,22 +105,22 @@ export default function Contact() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-100 rounded-full">
-                    <Mail className="w-5 h-5 text-blue-600" />
+                  <div className="p-2 bg-primary/10 rounded-full">
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <span>dbgavali1403@gmail.com</span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-100 rounded-full">
-                    <Phone className="w-5 h-5 text-blue-600" />
+                  <div className="p-2 bg-primary/10 rounded-full">
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <span>+91 7666445228</span>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-100 rounded-full">
-                    <MapPin className="w-5 h-5 text-blue-600" />
+                  <div className="p-2 bg-primary/10 rounded-full">
+                    <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <span>Pune, Maharashtra, India</span>
                 </div>
@@ -195,10 +201,9 @@ export default function Contact() {
             </CardContent>
           </Card>
         </div>
-        {/* Social Media Section */}
         <div className="mt-12 text-center">
           <h3 className="text-2xl font-ovo mb-10">Find Me On</h3>
-          <div className="flex justify-center items-center gap-8 flex-wrap">
+          <div className="flex justify-center items-center gap-10 flex-wrap">
             {socialLinks.map((social, index) => (
               <a
                 key={index}

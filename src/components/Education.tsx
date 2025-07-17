@@ -69,4 +69,3 @@ export default function Education() {
     </div>
   );
 }
-#nothing to edit

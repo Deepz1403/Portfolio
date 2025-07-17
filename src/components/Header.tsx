@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight, Hand } from "lucide-react";
+import { Download, ArrowRight, Hand, Github, Linkedin, Link } from "lucide-react";
 
 const titles = [
   "a Full-Stack Developer",
@@ -38,14 +38,14 @@ export default function Header() {
   }, [displayedTitle, isDeleting, titleIndex]);
 
   return (
-    <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-6">
-      <div className="mb-6">
+    <div className="w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 py-12">
+      <div className="mb-4">
         <Image
           src="/Images/Home/Deepesh Gavali Photo.jpg"
           alt="Profile"
-          width={256}
-          height={256}
-          className="rounded-full w-64 h-64 object-cover mx-auto"
+          width={200}
+          height={200}
+          className="rounded-full w-48 h-48 object-cover mx-auto"
         />
       </div>
 
@@ -83,6 +83,33 @@ export default function Header() {
             My Resume
           </a>
         </Button>
+      </div>
+
+      <div className="flex items-center gap-4 mt-4">
+        <a
+          href="https://github.com/Deepz1403"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          <Github className="w-6 h-6" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/deepeshgavali"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          <Linkedin className="w-6 h-6" />
+        </a>
+        <a
+          href="https://linktr.ee/deepz143"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          <Link className="w-6 h-6" />
+        </a>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
-  const [logoSrc, setLogoSrc] = useState("/Images/Home/Logo Light Mode.png"); // Default to light mode
+  const [logoSrc, setLogoSrc] = useState("/Images/Home/Logo Light Mode.png");
 
   useEffect(() => {
     setLogoSrc(
