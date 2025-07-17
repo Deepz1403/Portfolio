@@ -2,7 +2,14 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight, Hand, Github, Linkedin, Link } from "lucide-react";
+import {
+  Download,
+  ArrowRight,
+  Hand,
+  Github,
+  Linkedin,
+  Link,
+} from "lucide-react";
 
 const titles = [
   "a Full-Stack Developer",
@@ -76,7 +83,7 @@ export default function Header() {
 
         <Button variant="outline" size="lg" asChild className="font-ovo">
           <a
-            href="/resume/Deepesh Gavali Resume.pdf"
+            href="Resume/Deepesh Gavali Resume.pdf"
             download="Deepesh Gavali Resume.pdf"
           >
             <Download className="w-4 h-4 mr-2" />
