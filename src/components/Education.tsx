@@ -58,8 +58,8 @@ export default function Education() {
               />
             </div>
             <CardHeader>
-              <CardTitle className="text-xl">{edu.institution}</CardTitle>
-              <CardDescription className="text-lg">{edu.title}</CardDescription>
+              <CardTitle className="text-xl text-foreground">{edu.institution}</CardTitle>
+              <CardDescription className="text-lg text-foreground">{edu.title}</CardDescription>
               <p className="text-base text-muted-foreground">{edu.year}</p>
               <p className="text-base text-muted-foreground">{edu.description}</p>
             </CardHeader>
@@ -69,3 +69,4 @@ export default function Education() {
     </div>
   );
 }
+#nothing to edit

@@ -3,77 +3,91 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Trophy, Award, Medal } from "lucide-react";
+import Image from "next/image";
 
 export default function Achievements() {
   const achievementsData = [
     {
-      title: "Best Project Award",
-      organization: "University Tech Fest",
-      year: "2024",
-      description: "Won first place for innovative web application",
-      icon: Trophy,
-      color: "text-yellow-600",
+      title: "Deloitte Hacksplosion",
+      organization: "Hackathon",
+      description:
+        "Achieved a <strong>top 15 ranking</strong> out of <strong>3,000+ teams</strong> in Deloitte's prestigious national hackathon by developing an <strong>innovative data-driven solution</strong> addressing complex business challenges.",
+      image: "/Images/Achievements/Deloitte Hacksplosion.jpeg",
     },
     {
-      title: "Certified React Developer",
-      organization: "Meta",
-      year: "2023",
-      description: "Completed advanced React certification program",
-      icon: Award,
-      color: "text-blue-600",
+      title:
+        "Joint Overall Student Coordinator – Center for Training and Development (CTD)",
+      organization: "Position of Responsibility",
+      description:
+        "<strong>Led the planning and execution</strong> of a week-long Placement Symposium for <strong>1,700+ students</strong>, and coordinated <strong>guest speakers</strong>, <strong>industry professionals</strong>, and <strong>training sessions</strong> across multiple departments.",
+      image: "/Images/Achievements/CTD.png",
     },
     {
-      title: "Hackathon Winner",
-      organization: "CodeFest 2023",
-      year: "2023",
-      description: "1st position in 48-hour coding challenge",
-      icon: Medal,
-      color: "text-green-600",
+      title: "Core Member – Saturnalia",
+      organization: "Position of Responsibility",
+      description:
+        "Played a pivotal role in organizing Saturnalia, the official fest of Thapar Institute of Engineering and Technology, by <strong>managing logistics for 10,000+ attendees</strong>, overseeing event <strong>scheduling across 3 days</strong>, and leading cross-<strong>functional coordination among 50+ volunteers</strong>.",
+      image: "/Images/Achievements/Saturnalia.jpeg",
     },
   ];
 
   return (
-    <div id="achievements" className="w-full px-[12%] py-20 scroll-mt-20">
-      <div className="text-center mb-12">
-        <h4 className="text-lg font-ovo text-muted-foreground mb-2">
+    <div id="achievements" className="w-full px-[12%] py-12 scroll-mt-20">
+      <div className="text-center mb-8">
+        <h4 className="text-sm font-ovo text-muted-foreground mb-1">
           My Accomplishments
         </h4>
-        <h2 className="text-4xl md:text-5xl font-ovo">Achievements</h2>
+        <h2 className="text-3xl md:text-4xl font-ovo">Achievements</h2>
       </div>
 
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 gap-4 auto-rows-fr">
           {achievementsData.map((achievement, index) => {
-            const IconComponent = achievement.icon;
+            const isEven = index % 2 === 0;
             return (
               <Card
                 key={index}
-                className="text-center hover:shadow-lg transition-shadow duration-300"
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 group p-0 flex flex-col h-full"
               >
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-muted rounded-full">
-                      <IconComponent
-                        className={`w-8 h-8 ${achievement.color}`}
-                      />
-                    </div>
+                <div
+                  className={`flex ${
+                    isEven ? "flex-row" : "flex-row-reverse"
+                  } h-full min-h-[10rem]`}
+                >
+                  <div className="relative w-1/3 h-full overflow-hidden">
+                    <Image
+                      src={achievement.image}
+                      alt={achievement.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <CardTitle className="text-xl">{achievement.title}</CardTitle>
-                  <CardDescription className="font-medium text-primary">
-                    {achievement.organization}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    {achievement.description}
-                  </p>
-                  <Badge variant="outline">{achievement.year}</Badge>
-                </CardContent>
+
+                  <div className="flex flex-col p-4 w-2/3 h-full">
+                    <div className="flex-shrink-0 mb-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-6 h-1 bg-blue-500 rounded-full"></div>
+                        <CardDescription className="text-blue-600 font-medium uppercase tracking-wide text-sm">
+                          {achievement.organization}
+                        </CardDescription>
+                      </div>
+                      <CardTitle className="text-lg lg:text-xl font-bold text-gray-900 leading-tight">
+                        {achievement.title}
+                      </CardTitle>
+                    </div>
+
+                    <CardContent className="p-0 flex-1">
+                      <p
+                        className="text-foreground leading-relaxed text-sm lg:text-base"
+                        dangerouslySetInnerHTML={{
+                          __html: achievement.description,
+                        }}
+                      />
+                    </CardContent>
+                  </div>
+                </div>
               </Card>
             );
           })}

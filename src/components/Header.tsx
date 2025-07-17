@@ -43,9 +43,9 @@ export default function Header() {
         <Image
           src="/Images/Home/Deepesh Gavali Photo.jpg"
           alt="Profile"
-          width={160}
-          height={160}
-          className="rounded-full w-40 h-40 object-cover mx-auto"
+          width={256}
+          height={256}
+          className="rounded-full w-64 h-64 object-cover mx-auto"
         />
       </div>
 

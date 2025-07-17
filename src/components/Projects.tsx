@@ -17,19 +17,19 @@ export default function Projects() {
       title: "PulseMail",
       description:
         "A scalable SaaS email newsletter platform with a custom editor, tiered Stripe subscriptions, and API integration for external websites.",
-      image: "/images/work-1.png",
+      image: "/Images/Projects/PulseMail.png",
       technologies: ["Next.js", "TypeScript", "AstraDB"],
       demoLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/Deepz1403/PulseMail",
     },
     {
       title: "OrderMate",
       description:
         "An AI-powered order processing system featuring automated inventory control, dynamic pricing, sentiment analysis, and an interactive analytics dashboard.",
-      image: "/images/work-2.png",
+      image: "/Images/Projects/OrderMate.png",
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
       demoLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/Deepz1403/OrderMate",
     },
   ];
 
@@ -59,7 +59,7 @@ export default function Projects() {
             </div>
             <CardHeader>
               <CardTitle className="text-2xl">{project.title}</CardTitle>
-              <CardDescription className="text-base">{project.description}</CardDescription>
+              <CardDescription className="text-base text-muted-foreground">{project.description}</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2 mb-4">

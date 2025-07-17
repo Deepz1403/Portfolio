@@ -1,44 +1,31 @@
 "use client";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="mt-20 pb-8">
-      <div className="text-center mb-8">
-        <Image src="/images/logo.png" alt="Logo" width={144} height={144} className="w-36 mx-auto mb-4" />
-        <p className="max-w-md mx-auto font-ovo text-muted-foreground">
-          I am a frontend developer with experience in React, Next.js, and
-          modern web technologies. Let&apos;s build something amazing together.
-        </p>
-      </div>
-
       <Separator className="mb-6" />
 
-      <div className="flex flex-col sm:flex-row items-center justify-between px-[10%] gap-4">
+      <div className="relative text-center px-[10%]">
         <p className="text-sm text-muted-foreground">
-          © 2024 Your Name. All rights reserved.
+          © 2025 Deepesh Gavali. All rights reserved.
         </p>
-
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" asChild>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="w-4 h-4" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Github className="w-4 h-4" />
-            </a>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <Twitter className="w-4 h-4" />
-            </a>
-          </Button>
-        </div>
+        <Button
+          variant="outline"
+          onClick={scrollToTop}
+          className="absolute bottom-0 left-[10%]"
+        >
+          <ArrowUp className="mr-2 h-4 w-4" /> Back to Top
+        </Button>
       </div>
     </footer>
   );

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, ArrowUpRight } from "lucide-react";
@@ -8,6 +9,16 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useTheme();
+  const [logoSrc, setLogoSrc] = useState("/Images/Home/Logo Light Mode.png"); // Default to light mode
+
+  useEffect(() => {
+    setLogoSrc(
+      theme === "dark"
+        ? "/Images/Home/Logo Dark Mode.png"
+        : "/Images/Home/Logo Light Mode.png"
+    );
+  }, [theme]);
 
   const navItems = [
     { href: "#top", label: "Home" },
@@ -16,19 +27,26 @@ export default function Navbar() {
     { href: "#projects", label: "Projects" },
     { href: "#skills", label: "Skills" },
     { href: "#achievements", label: "Achievements" },
+    { href: "#certifications", label: "Certifications" },
     { href: "#contact", label: "Contact" },
   ];
 
   return (
     <>
       <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
-        <Image src="/images/header-bg-color.png" alt="" width={800} height={600} className="w-full" />
+        <Image
+          src="/images/header-bg-color.png"
+          alt=""
+          width={800}
+          height={600}
+          className="w-full"
+        />
       </div>
 
       <nav className="w-full fixed top-0 px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 bg-background/80 backdrop-blur-md">
         <a href="#top">
           <Image
-            src="/Images/Home/logo.png"
+            src={logoSrc}
             alt="Logo"
             width={160}
             height={40}
