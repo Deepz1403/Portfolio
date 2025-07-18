@@ -48,7 +48,7 @@ export default function Header() {
     <div className="w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 py-12">
       <div className="mb-4">
         <Image
-          src="/Images/Home/Deepesh Gavali Photo.jpg"
+          src="/Images/Home/Deepesh Gavali Photo.png"
           alt="Profile"
           width={200}
           height={200}
@@ -83,7 +83,7 @@ export default function Header() {
 
         <Button variant="outline" size="lg" asChild className="font-ovo">
           <a
-            href="Resume/Deepesh Gavali Resume.pdf"
+            href="/Resume/Deepesh Gavali Resume.pdf"
             download="Deepesh Gavali Resume.pdf"
           >
             <Download className="w-4 h-4 mr-2" />
